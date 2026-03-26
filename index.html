@@ -7,11 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             color: #334155; /* slate-700 */
             background-color: #f8fafc;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
 
         .worksheet-container {
@@ -41,7 +47,7 @@
             font-size: 18px;
             text-transform: uppercase;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border-bottom: 2px solid #93c5fd; /* blue-300 */
             padding-bottom: 4px;
         }
@@ -50,8 +56,8 @@
             color: #334155;
             font-size: 16px;
             font-weight: 600;
-            margin-top: 20px;
-            margin-bottom: 12px;
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
 
         .practice-card {
@@ -60,6 +66,7 @@
             padding: 20px;
             margin-top: 15px;
             position: relative;
+            background-color: #ffffff;
         }
 
         .card-badge {
@@ -80,41 +87,64 @@
             width: 100%;
         }
 
-        /* --- PRINT SETTINGS --- */
+        .structure-box {
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px;
+            background-color: #f8fafc;
+        }
+
+        .structure-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- BULLETPROOF PRINT SETTINGS --- */
         @media print {
             @page {
-                margin: 10mm;
+                margin: 15mm; /* Sets physical printer margins safely */
+                size: A4;
             }
-            body { 
-                background: transparent; 
-                margin: 0;
-                padding: 0;
+            body, html { 
+                background: transparent !important; 
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
             }
             .worksheet-container {
-                box-shadow: none;
-                margin: 0;
-                padding: 0;
-                max-width: 100%;
-                border-radius: 0;
+                box-shadow: none !important;
+                margin: 0 !important;
+                /* CRITICAL FIX: Removing internal padding in print mode ensures 
+                   content expands cleanly to the @page margin without shifting left */
+                padding: 0 !important; 
+                max-width: 100% !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+                border: none !important;
             }
             
-            /* CRITICAL FIX: 
-               This ensures targeted sections stay completely grouped together. 
-               If a section reaches the bottom of the page, it will jump to the next page entirely rather than breaking in half.
-            */
+            /* Keeps targeted sections from splitting in half across pages */
             .keep-together {
-                page-break-inside: avoid;
-                break-inside: avoid;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
             }
 
+            /* Forces a clean page break before the practice tasks */
             .page-break-before {
-                page-break-before: always;
+                page-break-before: always !important;
+                break-before: page !important;
             }
             
-            /* Ensures borders and pill backgrounds print correctly */
-            .vocab-pill, .practice-card {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            /* Ensures borders and pill backgrounds print with their exact colors */
+            .vocab-pill, .practice-card, .structure-box {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
     </style>
@@ -124,7 +154,7 @@
     <div class="worksheet-container">
         
         <!-- HEADER -->
-        <div class="mb-8 pb-4 border-b-2 border-slate-200 flex justify-between items-end">
+        <div class="mb-6 pb-4 border-b-2 border-slate-200 flex justify-between items-end">
             <div>
                 <h1 class="text-2xl font-bold text-slate-800 tracking-tight">Speaking Practice Worksheet</h1>
                 <p class="text-sm text-slate-500 font-medium">Units 4 & 5 Synthesis</p>
@@ -136,38 +166,70 @@
         </div>
 
         <!-- ============================================== -->
-        <!-- PART 1: WARM-UP & PERSONAL REFLECTION          -->
+        <!-- PART 1: LANGUAGE STRUCTURES (Speculation)      -->
         <!-- ============================================== -->
-        <div class="mb-10 keep-together">
-            <h2 class="part-title">PART 1: Warm-Up & General Conversation</h2>
-            <p class="text-sm text-slate-700 mb-6">
-                <strong>Instructions:</strong> Answer these general questions to warm up your fluency. Try to speak for about 30 seconds per question. Write a few keywords below to help you remember your ideas.
+        <div class="mb-8 keep-together">
+            <h2 class="part-title">PART 1: Language Structure Suggestions (Grammar)</h2>
+            <p class="text-sm text-slate-700 mb-4">
+                Use these target grammar structures to boost your score when discussing historical events, making deductions, or reporting facts.
             </p>
 
-            <div class="space-y-6">
-                <div>
-                    <p class="font-bold text-slate-800 text-sm mb-2">1. Do you perform better under pressure, or do you prefer having a lot of time to complete a task? Why?</p>
-                    <div class="writing-lines mt-2"></div>
-                    <div class="writing-lines mt-2"></div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="structure-box">
+                    <div class="structure-title text-blue-700">Speculating (Past & Present)</div>
+                    <ul class="text-sm space-y-2 text-slate-700 m-0 pl-4 list-disc">
+                        <li><span class="font-bold text-slate-900">Must have + V3:</span> "They <em>must have felt</em> extreme pressure during the Space Race."</li>
+                        <li><span class="font-bold text-slate-900">Might / Could be:</span> "It <em>might be</em> difficult for museums to return everything."</li>
+                        <li><span class="font-bold text-slate-900">Can't have + V3:</span> "He <em>can't have known</em> the disastrous consequences."</li>
+                    </ul>
                 </div>
-                <div>
-                    <p class="font-bold text-slate-800 text-sm mb-2">2. Can you think of a time when making a mistake actually taught you a valuable life lesson?</p>
-                    <div class="writing-lines mt-2"></div>
-                    <div class="writing-lines mt-2"></div>
-                </div>
-                <div>
-                    <p class="font-bold text-slate-800 text-sm mb-2">3. In your opinion, why is it important for a society to preserve its ancient history and artifacts?</p>
-                    <div class="writing-lines mt-2"></div>
-                    <div class="writing-lines mt-2"></div>
+                <div class="structure-box">
+                    <div class="structure-title text-blue-700">Reporting Ideas & Claims</div>
+                    <ul class="text-sm space-y-2 text-slate-700 m-0 pl-4 list-disc">
+                        <li><span class="font-bold text-slate-900">Claim / Argue that:</span> "Many historians <em>argue that</em> the artifacts were stolen."</li>
+                        <li><span class="font-bold text-slate-900">Suggest + V-ing:</span> "I would <em>suggest compromising</em> by using 3D copies."</li>
+                        <li><span class="font-bold text-slate-900">Admit / Deny:</span> "Leaders rarely <em>admit making</em> mistakes."</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
         <!-- ============================================== -->
-        <!-- PART 2: VOCABULARY BANK (Kept safely together) -->
+        <!-- PART 2: LANGUAGE STRUCTURES (Discourse)        -->
         <!-- ============================================== -->
-        <div class="keep-together mb-10 mt-10">
-            <h2 class="part-title">PART 2: Power Vocabulary Bank</h2>
+        <div class="mb-8 keep-together">
+            <h2 class="part-title">PART 2: Language Structure Suggestions (Discourse)</h2>
+            <p class="text-sm text-slate-700 mb-4">
+                Use these linking phrases to organize your thoughts, compare different sides of an argument, and handle complex social questions.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="structure-box">
+                    <div class="structure-title text-emerald-700">Expressing & Justifying Opinions</div>
+                    <ul class="text-sm space-y-2 text-slate-700 m-0 pl-4 list-disc">
+                        <li>"From my perspective, it is absolutely essential to..."</li>
+                        <li>"I firmly believe that..."</li>
+                        <li>"The main justification for this is that..."</li>
+                        <li>"Taking responsibility means..." (Useful for Card 2)</li>
+                    </ul>
+                </div>
+                <div class="structure-box">
+                    <div class="structure-title text-emerald-700">Comparing, Contrasting & Evaluating</div>
+                    <ul class="text-sm space-y-2 text-slate-700 m-0 pl-4 list-disc">
+                        <li>"While it is true that [A], we must also consider [B]..."</li>
+                        <li>"On the one hand... On the other hand..."</li>
+                        <li>"Instead of getting defensive, it's better to..."</li>
+                        <li>"Compared to the past, today we..."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PART 3: VOCABULARY BANK (Kept safely together) -->
+        <!-- ============================================== -->
+        <div class="keep-together mb-8">
+            <h2 class="part-title">PART 3: Power Vocabulary Bank</h2>
             <p class="text-sm text-slate-700 mb-4">
                 You will be graded on your lexical resource. Try to actively include at least <strong>3 to 4</strong> of these target words in your 90-second response.
             </p>
@@ -175,7 +237,7 @@
             <!-- Unit 4 -->
             <div>
                 <h3 class="unit-title">Unit 4: Competition & Pressure</h3>
-                <div class="mb-2">
+                <div class="mb-1">
                     <span class="vocab-pill">Rivalry</span>
                     <span class="vocab-pill">Opponent</span>
                     <span class="vocab-pill">Catalyst</span>
@@ -190,15 +252,12 @@
                     <span class="vocab-pill">Invasive</span>
                     <span class="vocab-pill">Transparent</span>
                 </div>
-                <p class="text-sm text-slate-700">
-                    <strong>Key Phrases:</strong> <em>Zero-sum game, rise to the challenge, survival of the fittest.</em>
-                </p>
             </div>
 
             <!-- Unit 5 -->
             <div>
                 <h3 class="unit-title">Unit 5: The Past & Responsibility</h3>
-                <div class="mb-2">
+                <div class="mb-1">
                     <span class="vocab-pill">Artifact</span>
                     <span class="vocab-pill">Excavation</span>
                     <span class="vocab-pill">Preservation</span>
@@ -213,28 +272,22 @@
                     <span class="vocab-pill">Blame</span>
                     <span class="vocab-pill">Obsess</span>
                 </div>
-                <p class="text-sm text-slate-700 mb-1">
-                    <strong>Key Phrases:</strong> <em>Get defensive, take responsibility, culturally significant.</em>
-                </p>
-                <p class="text-sm text-slate-700">
-                    <strong>Grammar (Speculation):</strong> <em>Must have been, might be, could have, can't have.</em>
-                </p>
             </div>
         </div>
 
         <!-- ============================================== -->
-        <!-- PART 3: EXAM PRACTICE TASK                     -->
+        <!-- PART 4: EXAM PRACTICE TASK (Page Break Before) -->
         <!-- ============================================== -->
-        <div class="keep-together">
-            <h2 class="part-title">PART 3: Exam Practice Task</h2>
-            <p class="text-sm text-slate-700 italic mb-6">
+        <div class="page-break-before">
+            <h2 class="part-title">PART 4: Exam Practice Task</h2>
+            <p class="text-sm text-slate-700 italic mb-4">
                 Instructions: Take exactly 1 minute to write down 3-4 bullet points (use the toolkit structures and vocabulary above!). Then, set a timer and speak out loud for 60 to 90 seconds.
             </p>
 
             <!-- Card 1 -->
             <div class="practice-card keep-together">
                 <span class="card-badge">Practice Card 1</span>
-                <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-2">The Digital Compromise</h3>
+                <h3 class="text-xl font-medium text-slate-800 mb-3 border-b border-slate-200 pb-2">The Digital Compromise</h3>
                 
                 <p class="text-sm text-slate-600 italic mb-4 leading-relaxed">
                     In Unit 4, we saw how technological innovation can solve complex problems. In Unit 5, we explored the fierce debate over who owns historical artifacts like the Elgin Marbles.
@@ -244,23 +297,23 @@
                 </p>
 
                 <!-- 1-Minute Notes Section -->
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-6">1-Minute Notes:</p>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-5">1-Minute Notes:</p>
                 <div class="writing-lines"></div>
                 <div class="writing-lines"></div>
                 <div class="writing-lines"></div>
             </div>
 
             <!-- Card 2 -->
-            <div class="practice-card keep-together mt-8">
+            <div class="practice-card keep-together mt-6">
                 <span class="card-badge">Practice Card 2</span>
-                <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-2">Handling Criticism</h3>
+                <h3 class="text-xl font-medium text-slate-800 mb-3 border-b border-slate-200 pb-2">Handling Criticism</h3>
                 
                 <p class="text-sm text-slate-800 font-bold mb-4">
                     Question: When someone points out a mistake you made, do you naturally get defensive? What are some strategies you can use to stay calm, listen, and take responsibility instead of immediately shifting the blame?
                 </p>
 
                 <!-- 1-Minute Notes Section -->
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-6">1-Minute Notes:</p>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-5">1-Minute Notes:</p>
                 <div class="writing-lines"></div>
                 <div class="writing-lines"></div>
                 <div class="writing-lines"></div>
