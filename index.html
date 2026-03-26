@@ -82,6 +82,9 @@
 
         /* --- PRINT SETTINGS --- */
         @media print {
+            @page {
+                margin: 10mm;
+            }
             body { 
                 background: transparent; 
                 margin: 0;
@@ -96,15 +99,19 @@
             }
             
             /* CRITICAL FIX: 
-               This ensures Part 2 stays completely grouped together. 
-               If it reaches the bottom of the page, it will jump to the next page entirely rather than breaking in half.
+               This ensures targeted sections stay completely grouped together. 
+               If a section reaches the bottom of the page, it will jump to the next page entirely rather than breaking in half.
             */
             .keep-together {
                 page-break-inside: avoid;
                 break-inside: avoid;
             }
+
+            .page-break-before {
+                page-break-before: always;
+            }
             
-            /* Ensures borders print correctly */
+            /* Ensures borders and pill backgrounds print correctly */
             .vocab-pill, .practice-card {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
@@ -116,7 +123,7 @@
 
     <div class="worksheet-container">
         
-        <!-- HEADER (Optional context placeholder) -->
+        <!-- HEADER -->
         <div class="mb-8 pb-4 border-b-2 border-slate-200 flex justify-between items-end">
             <div>
                 <h1 class="text-2xl font-bold text-slate-800 tracking-tight">Speaking Practice Worksheet</h1>
@@ -129,9 +136,37 @@
         </div>
 
         <!-- ============================================== -->
+        <!-- PART 1: WARM-UP & PERSONAL REFLECTION          -->
+        <!-- ============================================== -->
+        <div class="mb-10 keep-together">
+            <h2 class="part-title">PART 1: Warm-Up & General Conversation</h2>
+            <p class="text-sm text-slate-700 mb-6">
+                <strong>Instructions:</strong> Answer these general questions to warm up your fluency. Try to speak for about 30 seconds per question. Write a few keywords below to help you remember your ideas.
+            </p>
+
+            <div class="space-y-6">
+                <div>
+                    <p class="font-bold text-slate-800 text-sm mb-2">1. Do you perform better under pressure, or do you prefer having a lot of time to complete a task? Why?</p>
+                    <div class="writing-lines mt-2"></div>
+                    <div class="writing-lines mt-2"></div>
+                </div>
+                <div>
+                    <p class="font-bold text-slate-800 text-sm mb-2">2. Can you think of a time when making a mistake actually taught you a valuable life lesson?</p>
+                    <div class="writing-lines mt-2"></div>
+                    <div class="writing-lines mt-2"></div>
+                </div>
+                <div>
+                    <p class="font-bold text-slate-800 text-sm mb-2">3. In your opinion, why is it important for a society to preserve its ancient history and artifacts?</p>
+                    <div class="writing-lines mt-2"></div>
+                    <div class="writing-lines mt-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
         <!-- PART 2: VOCABULARY BANK (Kept safely together) -->
         <!-- ============================================== -->
-        <div class="keep-together mb-10">
+        <div class="keep-together mb-10 mt-10">
             <h2 class="part-title">PART 2: Power Vocabulary Bank</h2>
             <p class="text-sm text-slate-700 mb-4">
                 You will be graded on your lexical resource. Try to actively include at least <strong>3 to 4</strong> of these target words in your 90-second response.
@@ -190,7 +225,7 @@
         <!-- ============================================== -->
         <!-- PART 3: EXAM PRACTICE TASK                     -->
         <!-- ============================================== -->
-        <div>
+        <div class="keep-together">
             <h2 class="part-title">PART 3: Exam Practice Task</h2>
             <p class="text-sm text-slate-700 italic mb-6">
                 Instructions: Take exactly 1 minute to write down 3-4 bullet points (use the toolkit structures and vocabulary above!). Then, set a timer and speak out loud for 60 to 90 seconds.
@@ -215,8 +250,8 @@
                 <div class="writing-lines"></div>
             </div>
 
-            <!-- Card 2 (User Requested) -->
-            <div class="practice-card keep-together">
+            <!-- Card 2 -->
+            <div class="practice-card keep-together mt-8">
                 <span class="card-badge">Practice Card 2</span>
                 <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-2">Handling Criticism</h3>
                 
