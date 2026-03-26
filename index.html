@@ -15,7 +15,7 @@
             font-family: 'Inter', sans-serif;
             color: #334155; /* slate-700 */
             background-color: #f8fafc;
-            line-height: 1.6;
+            line-height: 1.5;
             margin: 0;
             padding: 0;
         }
@@ -33,82 +33,119 @@
             display: inline-block;
             border: 1px solid #cbd5e1; /* slate-300 */
             border-radius: 9999px;
-            padding: 4px 12px;
-            font-size: 13px;
+            padding: 2px 10px;
+            font-size: 12px;
             color: #475569; /* slate-600 */
-            margin-right: 6px;
-            margin-bottom: 8px;
+            margin-right: 4px;
+            margin-bottom: 4px;
             background-color: #ffffff;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
         h2.part-title {
             color: #1e40af; /* blue-800 */
-            font-size: 18px;
+            font-size: 16px;
             text-transform: uppercase;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             border-bottom: 2px solid #93c5fd; /* blue-300 */
             padding-bottom: 4px;
         }
 
+        /* Specific style for Part 4 to match the image exactly */
+        h2.part4-title {
+            color: #2563eb; /* A slightly brighter blue */
+            border-bottom: 2px solid #bfdbfe;
+            margin-bottom: 12px;
+        }
+
         h3.unit-title {
             color: #334155;
-            font-size: 16px;
-            font-weight: 600;
-            margin-top: 15px;
-            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 12px;
+            margin-bottom: 8px;
         }
 
         .practice-card {
             border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            padding: 20px;
-            margin-top: 15px;
+            border-radius: 8px;
+            padding: 24px;
             position: relative;
             background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .card-badge {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 10px;
+            top: 16px;
+            right: 24px;
+            font-size: 11px;
             font-weight: 700;
             color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        .notes-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
         .writing-lines {
             margin-top: 15px;
-            border-top: 1px dotted #94a3b8;
+            border-bottom: 1px dashed #94a3b8;
             height: 30px;
             width: 100%;
         }
 
+        /* Original Structure Box (Grammar) */
         .structure-box {
             border: 1px solid #e2e8f0;
             border-radius: 6px;
-            padding: 12px;
+            padding: 10px;
             background-color: #f8fafc;
         }
-
         .structure-title {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             color: #0f172a;
             border-bottom: 1px solid #cbd5e1;
-            padding-bottom: 4px;
-            margin-bottom: 8px;
+            padding-bottom: 2px;
+            margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
+        /* New 4-Chart Discourse Boxes */
+        .discourse-box {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .discourse-box.blue { border-left: 4px solid #3b82f6; }
+        .discourse-box.green { border-left: 4px solid #10b981; }
+        .discourse-box.orange { border-left: 4px solid #f59e0b; }
+        .discourse-box.purple { border-left: 4px solid #8b5cf6; }
+        
+        .d-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; }
+        .d-subtitle { font-size: 11px; font-style: italic; margin-bottom: 6px; }
+        .d-list { margin: 0; padding-left: 14px; list-style-type: disc; }
+        .d-list li { font-size: 11px; margin-bottom: 4px; color: #334155; }
+
         /* --- BULLETPROOF PRINT SETTINGS --- */
         @media print {
             @page {
-                margin: 15mm; /* Sets physical printer margins safely */
+                /* Increased left margin to 25mm to ensure text doesn't get cut off on standard printers */
+                margin: 20mm 15mm 20mm 25mm; 
                 size: A4;
             }
             body, html { 
@@ -120,8 +157,6 @@
             .worksheet-container {
                 box-shadow: none !important;
                 margin: 0 !important;
-                /* CRITICAL FIX: Removing internal padding in print mode ensures 
-                   content expands cleanly to the @page margin without shifting left */
                 padding: 0 !important; 
                 max-width: 100% !important;
                 width: 100% !important;
@@ -135,14 +170,15 @@
                 break-inside: avoid !important;
             }
 
-            /* Forces a clean page break before the practice tasks */
+            /* Forces a clean page break before specific elements */
             .page-break-before {
                 page-break-before: always !important;
                 break-before: page !important;
+                padding-top: 10px; /* Breathing room at top of new page */
             }
             
-            /* Ensures borders and pill backgrounds print with their exact colors */
-            .vocab-pill, .practice-card, .structure-box {
+            /* Ensures borders and backgrounds print with exact colors */
+            .vocab-pill, .practice-card, .structure-box, .discourse-box {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
@@ -154,12 +190,12 @@
     <div class="worksheet-container">
         
         <!-- HEADER -->
-        <div class="mb-6 pb-4 border-b-2 border-slate-200 flex justify-between items-end">
+        <div class="mb-4 pb-3 border-b-2 border-slate-200 flex justify-between items-end">
             <div>
-                <h1 class="text-2xl font-bold text-slate-800 tracking-tight">Speaking Practice Worksheet</h1>
-                <p class="text-sm text-slate-500 font-medium">Units 4 & 5 Synthesis</p>
+                <h1 class="text-xl font-bold text-slate-800 tracking-tight mb-0">Speaking Practice Worksheet</h1>
+                <p class="text-xs text-slate-500 font-medium m-0">Units 4 & 5 Synthesis</p>
             </div>
-            <div class="text-sm font-medium text-slate-600 text-right">
+            <div class="text-xs font-medium text-slate-600 text-right">
                 Name: ______________________<br>
                 Date: ______________________
             </div>
@@ -168,16 +204,16 @@
         <!-- ============================================== -->
         <!-- PART 1: LANGUAGE STRUCTURES (Speculation)      -->
         <!-- ============================================== -->
-        <div class="mb-8 keep-together">
+        <div class="mb-4 keep-together">
             <h2 class="part-title">PART 1: Language Structure Suggestions (Grammar)</h2>
-            <p class="text-sm text-slate-700 mb-4">
+            <p class="text-xs text-slate-700 mb-3">
                 Use these target grammar structures to boost your score when discussing historical events, making deductions, or reporting facts.
             </p>
 
-            <div class="grid md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-3">
                 <div class="structure-box">
                     <div class="structure-title text-blue-700">Speculating (Past & Present)</div>
-                    <ul class="text-sm space-y-2 text-slate-700 m-0 pl-4 list-disc">
+                    <ul class="text-[11px] space-y-1 text-slate-700 m-0 pl-4 list-disc">
                         <li><span class="font-bold text-slate-900">Must have + V3:</span> "They <em>must have felt</em> extreme pressure during the Space Race."</li>
                         <li><span class="font-bold text-slate-900">Might / Could be:</span> "It <em>might be</em> difficult for museums to return everything."</li>
                         <li><span class="font-bold text-slate-900">Can't have + V3:</span> "He <em>can't have known</em> the disastrous consequences."</li>
@@ -185,7 +221,7 @@
                 </div>
                 <div class="structure-box">
                     <div class="structure-title text-blue-700">Reporting Ideas & Claims</div>
-                    <ul class="text-sm space-y-2 text-slate-700 m-0 pl-4 list-disc">
+                    <ul class="text-[11px] space-y-1 text-slate-700 m-0 pl-4 list-disc">
                         <li><span class="font-bold text-slate-900">Claim / Argue that:</span> "Many historians <em>argue that</em> the artifacts were stolen."</li>
                         <li><span class="font-bold text-slate-900">Suggest + V-ing:</span> "I would <em>suggest compromising</em> by using 3D copies."</li>
                         <li><span class="font-bold text-slate-900">Admit / Deny:</span> "Leaders rarely <em>admit making</em> mistakes."</li>
@@ -197,40 +233,67 @@
         <!-- ============================================== -->
         <!-- PART 2: LANGUAGE STRUCTURES (Discourse)        -->
         <!-- ============================================== -->
-        <div class="mb-8 keep-together">
+        <div class="mb-5 keep-together">
             <h2 class="part-title">PART 2: Language Structure Suggestions (Discourse)</h2>
-            <p class="text-sm text-slate-700 mb-4">
-                Use these linking phrases to organize your thoughts, compare different sides of an argument, and handle complex social questions.
-            </p>
+            
+            <!-- The 4 New Discourse Charts -->
+            <div class="grid grid-cols-2 gap-3">
+                
+                <!-- Box 1 -->
+                <div class="discourse-box blue">
+                    <div class="d-title text-blue-600">💡 1. Expressing Your Opinion</div>
+                    <div class="d-subtitle text-blue-500">Instead of just saying "I think...", use these stronger alternatives:</div>
+                    <ul class="d-list">
+                        <li><strong>Strong Opinion:</strong> "I firmly believe that..." / "I am convinced that..."</li>
+                        <li><strong>Considered Opinion:</strong> "From my perspective..." / "As far as I am concerned..."</li>
+                        <li><strong>Thoughtful Guess:</strong> "I reckon that..." / "It seems to me that..."</li>
+                    </ul>
+                </div>
 
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="structure-box">
-                    <div class="structure-title text-emerald-700">Expressing & Justifying Opinions</div>
-                    <ul class="text-sm space-y-2 text-slate-700 m-0 pl-4 list-disc">
-                        <li>"From my perspective, it is absolutely essential to..."</li>
-                        <li>"I firmly believe that..."</li>
-                        <li>"The main justification for this is that..."</li>
-                        <li>"Taking responsibility means..." (Useful for Card 2)</li>
+                <!-- Box 2 -->
+                <div class="discourse-box green">
+                    <div class="d-title text-emerald-600">🧱 2. Supporting Your Argument</div>
+                    <div class="d-subtitle text-emerald-500">Always explain the 'why' behind your opinion:</div>
+                    <ul class="d-list">
+                        <li>"The primary reason for this is..."</li>
+                        <li>"This is mainly because..."</li>
+                        <li>"Another important factor to consider is..."</li>
+                        <li>"Furthermore..." / "Moreover..."</li>
                     </ul>
                 </div>
-                <div class="structure-box">
-                    <div class="structure-title text-emerald-700">Comparing, Contrasting & Evaluating</div>
-                    <ul class="text-sm space-y-2 text-slate-700 m-0 pl-4 list-disc">
-                        <li>"While it is true that [A], we must also consider [B]..."</li>
-                        <li>"On the one hand... On the other hand..."</li>
-                        <li>"Instead of getting defensive, it's better to..."</li>
-                        <li>"Compared to the past, today we..."</li>
+
+                <!-- Box 3 -->
+                <div class="discourse-box orange">
+                    <div class="d-title text-amber-600">🔍 3. Giving Examples</div>
+                    <div class="d-subtitle text-amber-500">Connect your opinion to a real-world or historical example:</div>
+                    <ul class="d-list">
+                        <li>"A prime example of this would be..."</li>
+                        <li>"To illustrate this point, consider..."</li>
+                        <li>"For instance, if we look at the Space Race..."</li>
+                        <li>"Take [the Elgin Marbles / invasive species] as an example..."</li>
                     </ul>
                 </div>
+
+                <!-- Box 4 -->
+                <div class="discourse-box purple">
+                    <div class="d-title text-purple-600">⚖️ 4. Acknowledging the Other Side</div>
+                    <div class="d-subtitle text-purple-500">B2 speakers show they understand both sides before making their point:</div>
+                    <ul class="d-list">
+                        <li>"While it is true that [competition causes stress], I still believe that..."</li>
+                        <li>"Some people might argue that [museums should keep artifacts], however..."</li>
+                        <li>"Despite the obvious benefits of [cooperation], we cannot ignore..."</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
 
         <!-- ============================================== -->
         <!-- PART 3: VOCABULARY BANK (Kept safely together) -->
         <!-- ============================================== -->
-        <div class="keep-together mb-8">
+        <div class="keep-together mb-2">
             <h2 class="part-title">PART 3: Power Vocabulary Bank</h2>
-            <p class="text-sm text-slate-700 mb-4">
+            <p class="text-xs text-slate-700 mb-2">
                 You will be graded on your lexical resource. Try to actively include at least <strong>3 to 4</strong> of these target words in your 90-second response.
             </p>
 
@@ -257,7 +320,7 @@
             <!-- Unit 5 -->
             <div>
                 <h3 class="unit-title">Unit 5: The Past & Responsibility</h3>
-                <div class="mb-1">
+                <div class="mb-0">
                     <span class="vocab-pill">Artifact</span>
                     <span class="vocab-pill">Excavation</span>
                     <span class="vocab-pill">Preservation</span>
@@ -276,20 +339,20 @@
         </div>
 
         <!-- ============================================== -->
-        <!-- PART 4: EXAM PRACTICE TASK (Page Break Before) -->
+        <!-- PAGE 2: EXAM PRACTICE TASK 1                   -->
         <!-- ============================================== -->
         <div class="page-break-before">
-            <h2 class="part-title">PART 4: Exam Practice Task</h2>
-            <p class="text-sm text-slate-700 italic mb-4">
+            <h2 class="part-title part4-title">PART 4: EXAM PRACTICE TASK</h2>
+            <p class="text-sm text-slate-600 italic mb-6">
                 Instructions: Take exactly 1 minute to write down 3-4 bullet points (use the toolkit structures and vocabulary above!). Then, set a timer and speak out loud for 60 to 90 seconds.
             </p>
 
             <!-- Card 1 -->
-            <div class="practice-card keep-together">
-                <span class="card-badge">Practice Card 1</span>
-                <h3 class="text-xl font-medium text-slate-800 mb-3 border-b border-slate-200 pb-2">The Digital Compromise</h3>
+            <div class="practice-card">
+                <span class="card-badge">PRACTICE CARD 1</span>
+                <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-3">The Digital Compromise</h3>
                 
-                <p class="text-sm text-slate-600 italic mb-4 leading-relaxed">
+                <p class="text-sm text-slate-600 italic mb-5 leading-relaxed">
                     In Unit 4, we saw how technological innovation can solve complex problems. In Unit 5, we explored the fierce debate over who owns historical artifacts like the Elgin Marbles.
                 </p>
                 <p class="text-sm text-slate-800 font-bold mb-4">
@@ -297,26 +360,42 @@
                 </p>
 
                 <!-- 1-Minute Notes Section -->
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-5">1-Minute Notes:</p>
+                <p class="notes-label">1-MINUTE NOTES:</p>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PAGE 3: EXAM PRACTICE TASK 2 & PRO-TIP         -->
+        <!-- ============================================== -->
+        <div class="page-break-before">
+            
+            <!-- Card 2 -->
+            <div class="practice-card">
+                <span class="card-badge">PRACTICE CARD 2</span>
+                <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-3">Handling Criticism</h3>
+                
+                <p class="text-sm text-slate-800 font-bold mb-4 mt-2">
+                    Question: When someone points out a mistake you made, do you naturally get defensive? What are some strategies you can use to stay calm, listen, and take responsibility instead of immediately shifting the blame?
+                </p>
+
+                <!-- 1-Minute Notes Section -->
+                <p class="notes-label">1-MINUTE NOTES:</p>
                 <div class="writing-lines"></div>
                 <div class="writing-lines"></div>
                 <div class="writing-lines"></div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="practice-card keep-together mt-6">
-                <span class="card-badge">Practice Card 2</span>
-                <h3 class="text-xl font-medium text-slate-800 mb-3 border-b border-slate-200 pb-2">Handling Criticism</h3>
-                
-                <p class="text-sm text-slate-800 font-bold mb-4">
-                    Question: When someone points out a mistake you made, do you naturally get defensive? What are some strategies you can use to stay calm, listen, and take responsibility instead of immediately shifting the blame?
+            <!-- EXAM PRO-TIP -->
+            <div class="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-4 shadow-sm keep-together">
+                <h4 class="font-bold text-yellow-800 text-sm mb-1 flex items-center gap-2">
+                    <span>📝</span> Pro-Tip for Exam Day:
+                </h4>
+                <p class="text-sm text-yellow-900 m-0">
+                    If you make a grammar mistake while speaking, do not panic. Simply correct yourself quickly and keep going, or just ignore it and focus on fluency. Examiners reward students who can keep speaking smoothly and confidently!
                 </p>
-
-                <!-- 1-Minute Notes Section -->
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-5">1-Minute Notes:</p>
-                <div class="writing-lines"></div>
-                <div class="writing-lines"></div>
-                <div class="writing-lines"></div>
             </div>
 
         </div>
