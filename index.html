@@ -3,190 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2 Speaking Exam Study Guide</title>
+    <title>Speaking Practice Worksheet</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         body {
-            /* Classic Google Docs background color */
-            background-color: #f8f9fa;
-            /* Default Google Docs font */
-            font-family: Arial, sans-serif;
-            color: #1f2937;
+            font-family: 'Inter', sans-serif;
+            color: #334155; /* slate-700 */
+            background-color: #f8fafc;
+            line-height: 1.6;
         }
 
-        /* Google Docs Page Simulation */
-        .google-doc-page {
-            background-color: #ffffff;
-            max-width: 21cm; /* Standard A4 width */
-            min-height: 29.7cm; /* Standard A4 height */
-            margin: 2.5rem auto;
-            padding: 2.54cm; /* Standard 1-inch margins */
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            border: 1px solid #e5e7eb;
+        .worksheet-container {
+            max-width: 210mm; /* A4 width */
+            margin: 2rem auto;
+            padding: 15mm;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
 
-        h1 { font-size: 24pt; font-weight: bold; margin-bottom: 8pt; line-height: 1.2; text-align: center; }
-        h2 { font-size: 16pt; font-weight: bold; margin-top: 24pt; margin-bottom: 12pt; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; }
-        h3 { font-size: 13pt; font-weight: bold; margin-top: 16pt; margin-bottom: 8pt; color: #374151; }
-        p, li { font-size: 11pt; line-height: 1.6; margin-bottom: 8pt; }
-        
-        .vocab-badge {
+        .vocab-pill {
             display: inline-block;
-            background-color: #f3f4f6;
-            border: 1px solid #d1d5db;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 10pt;
-            margin: 2px;
-            font-weight: 500;
+            border: 1px solid #cbd5e1; /* slate-300 */
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 13px;
+            color: #475569; /* slate-600 */
+            margin-right: 6px;
+            margin-bottom: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
+        h2.part-title {
+            color: #1e40af; /* blue-800 */
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #93c5fd; /* blue-300 */
+            padding-bottom: 4px;
+        }
+
+        h3.unit-title {
+            color: #334155;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        .practice-card {
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .writing-lines {
+            margin-top: 15px;
+            border-top: 1px dotted #94a3b8;
+            height: 30px;
+            width: 100%;
+        }
+
+        /* --- PRINT SETTINGS --- */
         @media print {
-            body { background-color: white; }
-            .google-doc-page { 
-                box-shadow: none; 
-                margin: 0; 
-                border: none; 
-                padding: 1cm; /* Printer handles physical margins */
-                width: 100%;
-                max-width: none;
+            body { 
+                background: transparent; 
+                margin: 0;
+                padding: 0;
+            }
+            .worksheet-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+                border-radius: 0;
+            }
+            
+            /* CRITICAL FIX: 
+               This ensures Part 2 stays completely grouped together. 
+               If it reaches the bottom of the page, it will jump to the next page entirely rather than breaking in half.
+            */
+            .keep-together {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* Ensures borders print correctly */
+            .vocab-pill, .practice-card {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="google-doc-page">
+    <div class="worksheet-container">
         
-        <!-- Header -->
-        <h1>🗣️ B2 Speaking Exam Study Guide</h1>
-        <p style="text-align: center; color: #4b5563; font-size: 12pt;"><strong>Units 4 & 5:</strong> Competition, History, Innovation, and Life Skills</p>
-        <p style="text-align: center; color: #6b7280; font-style: italic; margin-bottom: 24pt;">Exam Format: 1 Minute Preparation + 60–90 Seconds Speaking</p>
-
-        <p>This guide contains everything you need to succeed in your speaking exam. To get top marks at the B2 (Upper-Intermediate) level, you must do more than just state your answer. You need to <strong>express a clear opinion</strong>, <strong>support it with logical reasons</strong>, <strong>give specific examples</strong>, and <strong>use high-level vocabulary</strong>.</p>
-
-        <!-- PART 1: The Toolkit -->
-        <h2>PART 1: The B2 Speaking Toolkit</h2>
-        <p><em>Memorize a few phrases from each category below. Use them to structure your 60-90 second speech so that it flows logically and sounds professional.</em></p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-            
-            <!-- Box 1 -->
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-                <h3 class="text-blue-800 flex items-center gap-2 mt-0">💡 1. Expressing Your Opinion</h3>
-                <p class="text-sm text-blue-700 italic mb-3">Instead of just saying "I think...", use these stronger alternatives:</p>
-                <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li><strong>Strong Opinion:</strong> "I firmly believe that..." / "I am convinced that..."</li>
-                    <li><strong>Considered Opinion:</strong> "From my perspective..." / "As far as I am concerned..."</li>
-                    <li><strong>Thoughtful Guess:</strong> "I reckon that..." / "It seems to me that..."</li>
-                </ul>
-            </div>
-
-            <!-- Box 2 -->
-            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-lg">
-                <h3 class="text-emerald-800 flex items-center gap-2 mt-0">🏗️ 2. Supporting Your Argument</h3>
-                <p class="text-sm text-emerald-700 italic mb-3">Always explain the 'why' behind your opinion:</p>
-                <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li>"The primary reason for this is..."</li>
-                    <li>"This is mainly because..."</li>
-                    <li>"Another important factor to consider is..."</li>
-                    <li>"Furthermore..." / "Moreover..."</li>
-                </ul>
-            </div>
-
-            <!-- Box 3 -->
-            <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
-                <h3 class="text-amber-800 flex items-center gap-2 mt-0">🔍 3. Giving Examples</h3>
-                <p class="text-sm text-amber-700 italic mb-3">Connect your opinion to a real-world or historical example:</p>
-                <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li>"A prime example of this would be..."</li>
-                    <li>"To illustrate this point, consider..."</li>
-                    <li>"For instance, if we look at the Space Race..."</li>
-                    <li>"Take [the Elgin Marbles / invasive species] as an example..."</li>
-                </ul>
-            </div>
-
-            <!-- Box 4 -->
-            <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
-                <h3 class="text-purple-800 flex items-center gap-2 mt-0">⚖️ 4. Acknowledging the Other Side</h3>
-                <p class="text-sm text-purple-700 italic mb-3">B2 speakers show they understand both sides before making their point:</p>
-                <ul class="list-disc pl-5 text-sm space-y-2">
-                    <li>"While it is true that [competition causes stress], I still believe that..."</li>
-                    <li>"Some people might argue that [museums should keep the artifacts], however..."</li>
-                    <li>"Despite the obvious benefits of [cooperation], we cannot ignore..."</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- PART 2: Power Vocabulary Bank -->
-        <h2>PART 2: Power Vocabulary Bank</h2>
-        <p>You will be graded on your lexical resource. Try to actively include at least <strong>3 to 4</strong> of these target words in your 90-second response.</p>
-
-        <div class="mb-4">
-            <h3 class="mt-4 mb-2 text-gray-800">Unit 4: Competition & Pressure</h3>
-            <p>
-                <span class="vocab-badge">Rivalry</span>
-                <span class="vocab-badge">Opponent</span>
-                <span class="vocab-badge">Catalyst</span>
-                <span class="vocab-badge">Anxiety</span>
-                <span class="vocab-badge">Secrecy</span>
-                <span class="vocab-badge">Battleground</span>
-                <span class="vocab-badge">Outperform</span>
-                <span class="vocab-badge">Adapt</span>
-                <span class="vocab-badge">Coexist</span>
-                <span class="vocab-badge">Cooperate</span>
-                <span class="vocab-badge">Underperform</span>
-                <span class="vocab-badge">Invasive</span>
-                <span class="vocab-badge">Transparent</span>
-            </p>
-            <p class="text-sm text-gray-600 mt-1"><strong>Key Phrases:</strong> <em>Zero-sum game, rise to the challenge, survival of the fittest.</em></p>
-        </div>
-
-        <div>
-            <h3 class="mt-4 mb-2 text-gray-800">Unit 5: The Past & Responsibility</h3>
-            <p>
-                <span class="vocab-badge">Artifact</span>
-                <span class="vocab-badge">Excavation</span>
-                <span class="vocab-badge">Preservation</span>
-                <span class="vocab-badge">Heritage</span>
-                <span class="vocab-badge">Legacy</span>
-                <span class="vocab-badge">Acquisition</span>
-                <span class="vocab-badge">Loot</span>
-                <span class="vocab-badge">Consequences</span>
-                <span class="vocab-badge">Justification</span>
-                <span class="vocab-badge">Repatriate</span>
-                <span class="vocab-badge">Admit</span>
-                <span class="vocab-badge">Blame</span>
-                <span class="vocab-badge">Obsess</span>
-            </p>
-            <p class="text-sm text-gray-600 mt-1"><strong>Key Phrases:</strong> <em>Get defensive, take responsibility, culturally significant.</em></p>
-            <p class="text-sm text-gray-600"><strong>Grammar (Speculation):</strong> <em>Must have been, might be, could have, can't have.</em></p>
-        </div>
-
-        <!-- PART 3: Practice Task -->
-        <h2>PART 3: Exam Practice Task</h2>
-        <p><em>Instructions: Take exactly 1 minute to write down 3-4 bullet points (use the toolkit structures and vocabulary above!). Then, set a timer and speak out loud for 60 to 90 seconds.</em></p>
-
-        <div class="border-2 border-gray-800 p-6 rounded-lg bg-gray-50 mt-4 relative">
-            <div class="absolute top-0 right-0 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">PRACTICE CARD</div>
-            <h3 class="text-xl mt-0 border-b border-gray-300 pb-2 mb-4">The Digital Compromise</h3>
-            
-            <p class="text-gray-700 italic mb-4">In Unit 4, we saw how technological innovation can solve complex problems. In Unit 5, we explored the fierce debate over who owns historical artifacts like the Elgin Marbles.</p>
-            
-            <p class="font-bold text-gray-900 mb-2">Question:</p>
-            <p class="text-gray-800 leading-relaxed bg-white p-4 border border-gray-200 rounded">
-                If a museum can create a perfect, interactive 3D hologram of a stolen artifact, should they return the original to its home country and just display the hologram? Or is there a special "legacy" and value in seeing the original, physical object? <strong>Justify your opinion.</strong>
-            </p>
-        </div>
-
-        <!-- Pro-Tip -->
-        <div class="mt-10 bg-yellow-50 border border-yellow-200 p-4 rounded-lg flex items-start gap-4">
-            <div class="text-3xl">📝</div>
+        <!-- HEADER (Optional context placeholder) -->
+        <div class="mb-8 pb-4 border-b-2 border-slate-200 flex justify-between items-end">
             <div>
-                <p class="font-bold text-yellow-800 m-0">Pro-Tip for Exam Day:</p>
-                <p class="text-sm text-yellow-900 m-0 mt-1">If you make a grammar mistake while speaking, <strong>do not panic</strong>. Simply correct yourself quickly and keep going, or just ignore it and focus on fluency. Examiners reward students who can keep speaking smoothly and confidently!</p>
+                <h1 class="text-2xl font-bold text-slate-800 tracking-tight">Speaking Practice Worksheet</h1>
+                <p class="text-sm text-slate-500 font-medium">Units 4 & 5 Synthesis</p>
             </div>
+            <div class="text-sm font-medium text-slate-600 text-right">
+                Name: ______________________<br>
+                Date: ______________________
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PART 2: VOCABULARY BANK (Kept safely together) -->
+        <!-- ============================================== -->
+        <div class="keep-together mb-10">
+            <h2 class="part-title">PART 2: Power Vocabulary Bank</h2>
+            <p class="text-sm text-slate-700 mb-4">
+                You will be graded on your lexical resource. Try to actively include at least <strong>3 to 4</strong> of these target words in your 90-second response.
+            </p>
+
+            <!-- Unit 4 -->
+            <div>
+                <h3 class="unit-title">Unit 4: Competition & Pressure</h3>
+                <div class="mb-2">
+                    <span class="vocab-pill">Rivalry</span>
+                    <span class="vocab-pill">Opponent</span>
+                    <span class="vocab-pill">Catalyst</span>
+                    <span class="vocab-pill">Anxiety</span>
+                    <span class="vocab-pill">Secrecy</span>
+                    <span class="vocab-pill">Battleground</span>
+                    <span class="vocab-pill">Outperform</span>
+                    <span class="vocab-pill">Adapt</span>
+                    <span class="vocab-pill">Coexist</span>
+                    <span class="vocab-pill">Cooperate</span>
+                    <span class="vocab-pill">Underperform</span>
+                    <span class="vocab-pill">Invasive</span>
+                    <span class="vocab-pill">Transparent</span>
+                </div>
+                <p class="text-sm text-slate-700">
+                    <strong>Key Phrases:</strong> <em>Zero-sum game, rise to the challenge, survival of the fittest.</em>
+                </p>
+            </div>
+
+            <!-- Unit 5 -->
+            <div>
+                <h3 class="unit-title">Unit 5: The Past & Responsibility</h3>
+                <div class="mb-2">
+                    <span class="vocab-pill">Artifact</span>
+                    <span class="vocab-pill">Excavation</span>
+                    <span class="vocab-pill">Preservation</span>
+                    <span class="vocab-pill">Heritage</span>
+                    <span class="vocab-pill">Legacy</span>
+                    <span class="vocab-pill">Acquisition</span>
+                    <span class="vocab-pill">Loot</span>
+                    <span class="vocab-pill">Consequences</span>
+                    <span class="vocab-pill">Justification</span>
+                    <span class="vocab-pill">Repatriate</span>
+                    <span class="vocab-pill">Admit</span>
+                    <span class="vocab-pill">Blame</span>
+                    <span class="vocab-pill">Obsess</span>
+                </div>
+                <p class="text-sm text-slate-700 mb-1">
+                    <strong>Key Phrases:</strong> <em>Get defensive, take responsibility, culturally significant.</em>
+                </p>
+                <p class="text-sm text-slate-700">
+                    <strong>Grammar (Speculation):</strong> <em>Must have been, might be, could have, can't have.</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PART 3: EXAM PRACTICE TASK                     -->
+        <!-- ============================================== -->
+        <div>
+            <h2 class="part-title">PART 3: Exam Practice Task</h2>
+            <p class="text-sm text-slate-700 italic mb-6">
+                Instructions: Take exactly 1 minute to write down 3-4 bullet points (use the toolkit structures and vocabulary above!). Then, set a timer and speak out loud for 60 to 90 seconds.
+            </p>
+
+            <!-- Card 1 -->
+            <div class="practice-card keep-together">
+                <span class="card-badge">Practice Card 1</span>
+                <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-2">The Digital Compromise</h3>
+                
+                <p class="text-sm text-slate-600 italic mb-4 leading-relaxed">
+                    In Unit 4, we saw how technological innovation can solve complex problems. In Unit 5, we explored the fierce debate over who owns historical artifacts like the Elgin Marbles.
+                </p>
+                <p class="text-sm text-slate-800 font-bold mb-4">
+                    Question: Do you think creating perfect 3D digital copies of artifacts is an acceptable compromise to allow museums to repatriate the physical originals to their home countries? Why or why not?
+                </p>
+
+                <!-- 1-Minute Notes Section -->
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-6">1-Minute Notes:</p>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+            </div>
+
+            <!-- Card 2 (User Requested) -->
+            <div class="practice-card keep-together">
+                <span class="card-badge">Practice Card 2</span>
+                <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-2">Handling Criticism</h3>
+                
+                <p class="text-sm text-slate-800 font-bold mb-4">
+                    Question: When someone points out a mistake you made, do you naturally get defensive? What are some strategies you can use to stay calm, listen, and take responsibility instead of immediately shifting the blame?
+                </p>
+
+                <!-- 1-Minute Notes Section -->
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mt-6">1-Minute Notes:</p>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+            </div>
+
         </div>
 
     </div>
