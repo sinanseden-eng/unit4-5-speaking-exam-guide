@@ -52,11 +52,11 @@
             padding-bottom: 4px;
         }
 
-        /* Specific style for Part 4 to match the image exactly */
+        /* Specific style for Part 4 */
         h2.part4-title {
-            color: #2563eb; /* A slightly brighter blue */
+            color: #2563eb; 
             border-bottom: 2px solid #bfdbfe;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         h3.unit-title {
@@ -70,7 +70,7 @@
         .practice-card {
             border: 1px solid #cbd5e1;
             border-radius: 8px;
-            padding: 24px;
+            padding: 20px;
             position: relative;
             background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
@@ -79,7 +79,7 @@
         .card-badge {
             position: absolute;
             top: 16px;
-            right: 24px;
+            right: 20px;
             font-size: 11px;
             font-weight: 700;
             color: #94a3b8;
@@ -93,15 +93,15 @@
             color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 24px;
-            margin-bottom: 8px;
+            margin-top: 20px;
+            margin-bottom: 6px;
             display: block;
         }
 
         .writing-lines {
-            margin-top: 15px;
+            margin-top: 12px;
             border-bottom: 1px dashed #94a3b8;
-            height: 30px;
+            height: 25px;
             width: 100%;
         }
 
@@ -123,7 +123,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* New 4-Chart Discourse Boxes */
+        /* 4-Chart Discourse Boxes */
         .discourse-box {
             background-color: #ffffff;
             border: 1px solid #e2e8f0;
@@ -141,11 +141,10 @@
         .d-list { margin: 0; padding-left: 14px; list-style-type: disc; }
         .d-list li { font-size: 11px; margin-bottom: 4px; color: #334155; }
 
-        /* --- BULLETPROOF PRINT SETTINGS --- */
+        /* --- BULLETPROOF PRINT SETTINGS FOR NATURAL FLOW --- */
         @media print {
             @page {
-                /* Increased left margin to 25mm to ensure text doesn't get cut off on standard printers */
-                margin: 20mm 15mm 20mm 25mm; 
+                margin: 15mm; /* Safe standard margin */
                 size: A4;
             }
             body, html { 
@@ -170,11 +169,10 @@
                 break-inside: avoid !important;
             }
 
-            /* Forces a clean page break before specific elements */
-            .page-break-before {
-                page-break-before: always !important;
-                break-before: page !important;
-                padding-top: 10px; /* Breathing room at top of new page */
+            /* Prevent headers from being left alone at the bottom of a page */
+            h1, h2, h3, h4, .prevent-orphan {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
             }
             
             /* Ensures borders and backgrounds print with exact colors */
@@ -206,7 +204,7 @@
         <!-- ============================================== -->
         <div class="mb-4 keep-together">
             <h2 class="part-title">PART 1: Language Structure Suggestions (Grammar)</h2>
-            <p class="text-xs text-slate-700 mb-3">
+            <p class="text-xs text-slate-700 mb-3 prevent-orphan">
                 Use these target grammar structures to boost your score when discussing historical events, making deductions, or reporting facts.
             </p>
 
@@ -236,9 +234,7 @@
         <div class="mb-5 keep-together">
             <h2 class="part-title">PART 2: Language Structure Suggestions (Discourse)</h2>
             
-            <!-- The 4 New Discourse Charts -->
             <div class="grid grid-cols-2 gap-3">
-                
                 <!-- Box 1 -->
                 <div class="discourse-box blue">
                     <div class="d-title text-blue-600">💡 1. Expressing Your Opinion</div>
@@ -284,16 +280,15 @@
                         <li>"Despite the obvious benefits of [cooperation], we cannot ignore..."</li>
                     </ul>
                 </div>
-
             </div>
         </div>
 
         <!-- ============================================== -->
-        <!-- PART 3: VOCABULARY BANK (Kept safely together) -->
+        <!-- PART 3: VOCABULARY BANK                        -->
         <!-- ============================================== -->
-        <div class="keep-together mb-2">
+        <div class="mb-5 keep-together">
             <h2 class="part-title">PART 3: Power Vocabulary Bank</h2>
-            <p class="text-xs text-slate-700 mb-2">
+            <p class="text-xs text-slate-700 mb-2 prevent-orphan">
                 You will be graded on your lexical resource. Try to actively include at least <strong>3 to 4</strong> of these target words in your 90-second response.
             </p>
 
@@ -339,23 +334,23 @@
         </div>
 
         <!-- ============================================== -->
-        <!-- PAGE 2: EXAM PRACTICE TASK 1                   -->
+        <!-- PART 4: EXAM PRACTICE TASKS                    -->
         <!-- ============================================== -->
-        <div class="page-break-before">
+        <div class="mt-4">
             <h2 class="part-title part4-title">PART 4: EXAM PRACTICE TASK</h2>
-            <p class="text-sm text-slate-600 italic mb-6">
+            <p class="text-sm text-slate-600 italic mb-4 prevent-orphan">
                 Instructions: Take exactly 1 minute to write down 3-4 bullet points (use the toolkit structures and vocabulary above!). Then, set a timer and speak out loud for 60 to 90 seconds.
             </p>
 
             <!-- Card 1 -->
-            <div class="practice-card">
+            <div class="practice-card keep-together mb-6">
                 <span class="card-badge">PRACTICE CARD 1</span>
-                <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-3">The Digital Compromise</h3>
+                <h3 class="text-lg font-bold text-slate-800 mb-3 border-b border-slate-200 pb-2">The Digital Compromise</h3>
                 
-                <p class="text-sm text-slate-600 italic mb-5 leading-relaxed">
+                <p class="text-sm text-slate-600 italic mb-4 leading-relaxed">
                     In Unit 4, we saw how technological innovation can solve complex problems. In Unit 5, we explored the fierce debate over who owns historical artifacts like the Elgin Marbles.
                 </p>
-                <p class="text-sm text-slate-800 font-bold mb-4">
+                <p class="text-sm text-slate-800 font-bold mb-3">
                     Question: Do you think creating perfect 3D digital copies of artifacts is an acceptable compromise to allow museums to repatriate the physical originals to their home countries? Why or why not?
                 </p>
 
@@ -365,19 +360,13 @@
                 <div class="writing-lines"></div>
                 <div class="writing-lines"></div>
             </div>
-        </div>
 
-        <!-- ============================================== -->
-        <!-- PAGE 3: EXAM PRACTICE TASK 2 & PRO-TIP         -->
-        <!-- ============================================== -->
-        <div class="page-break-before">
-            
             <!-- Card 2 -->
-            <div class="practice-card">
+            <div class="practice-card keep-together mb-6">
                 <span class="card-badge">PRACTICE CARD 2</span>
-                <h3 class="text-xl font-medium text-slate-800 mb-4 border-b border-slate-200 pb-3">Handling Criticism</h3>
+                <h3 class="text-lg font-bold text-slate-800 mb-3 border-b border-slate-200 pb-2">Handling Criticism</h3>
                 
-                <p class="text-sm text-slate-800 font-bold mb-4 mt-2">
+                <p class="text-sm text-slate-800 font-bold mb-3 mt-2">
                     Question: When someone points out a mistake you made, do you naturally get defensive? What are some strategies you can use to stay calm, listen, and take responsibility instead of immediately shifting the blame?
                 </p>
 
@@ -389,7 +378,7 @@
             </div>
 
             <!-- EXAM PRO-TIP -->
-            <div class="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-4 shadow-sm keep-together">
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 shadow-sm keep-together">
                 <h4 class="font-bold text-yellow-800 text-sm mb-1 flex items-center gap-2">
                     <span>📝</span> Pro-Tip for Exam Day:
                 </h4>
@@ -397,7 +386,6 @@
                     If you make a grammar mistake while speaking, do not panic. Simply correct yourself quickly and keep going, or just ignore it and focus on fluency. Examiners reward students who can keep speaking smoothly and confidently!
                 </p>
             </div>
-
         </div>
 
     </div>
